@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "549382233258",
+    "project_id": "pdapda-aa48e",
+    "storage_bucket": "pdapda-aa48e.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549382233258:android:84799430da2bd61137c4d3",
+        "android_client_info": {
+          "package_name": "com.example.pda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDixGJp767UYC5wpbf5Li35hjUOlOlNWM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

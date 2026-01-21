@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp"
+        android:text="Σύστημα Παραγγελιοληψίας"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+    <!-- General Total EditText and Clear Button -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="16dp">
+
+        <!-- Add this near your other buttons in activity_main.xml -->
+        <ImageButton
+            android:id="@+id/btn_more_tables"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="More"
+            android:src="@drawable/ic_menu" />
+
+        <EditText
+            android:id="@+id/et_general_total"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionDone"
+            android:inputType="numberDecimal"
+            android:text="0.00€"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/total_price_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:focusableInTouchMode="true"
+            android:imeOptions="actionDone"
+            android:inputType="none"
+            android:text="0.00€"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <Button
+            android:id="@+id/btn_clear_general_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="#FF0000"
+            android:text="Clear"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <!-- Grid Layout for Buttons -->
+    <GridLayout
+        android:id="@+id/gl_tables"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:columnCount="4"
+        android:padding="8dp">
+
+        <!-- Table Buttons -->
+        <!-- Each button has layout_columnWeight="1" and layout_rowWeight="1" -->
+        <Button
+            android:id="@+id/btn_table_1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Μπ1"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ μΠ2"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ3"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ4"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ6"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ7"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ8"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ9"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΠ10"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π11"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π12"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_13"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π13"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_14"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π14"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_15"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π15"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_16"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Π16"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_17"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΕ17"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_18"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ Με18"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_19"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΕ19"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_20"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="Τρ ΜΕ20"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_21"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="ΣΤΑΝΤ 21"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_22"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="ΣΤΑΝΤ 22"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_23"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="ΣΤΑΝΤ 23 "
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_table_24"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_rowWeight="1"
+            android:layout_columnWeight="1"
+            android:layout_margin="8dp"
+            android:backgroundTint="#483C4F"
+            android:text="ΣΤΑΝΤ 24"
+            android:textColor="#FFFFFF" />
+
+    </GridLayout>
+
+    <!-- Footer Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_manage_orders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:backgroundTint="#008080"
+            android:text="Orders"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_manage_deliveries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:backgroundTint="#008080"
+            android:text="Deliveries"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_manage_stock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:backgroundTint="#008080"
+            android:text="STOCK"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/btn_manage_dash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="0dp"
+            android:backgroundTint="#008080"
+            android:text="Dash"
+            android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+</LinearLayout>

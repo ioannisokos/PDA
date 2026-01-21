@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/table_25" android:title="ΕΞΤΡΑ 25"/>
+    <item android:id="@+id/table_26" android:title="ΕΞΤΡΑ 26"/>
+    <item android:id="@+id/table_27" android:title="ΕΞΤΡΑ 27"/>
+    <item android:id="@+id/table_28" android:title="ΕΞΤΡΑ 28"/>
+    <item android:id="@+id/table_29" android:title="ΕΞΤΡΑ 29"/>
+    <item android:id="@+id/table_30" android:title="ΕΞΤΡΑ 30"/>
+    <item android:id="@+id/btn_logout" android:title="ΕΞΟΔΟΣ"/>
+</menu>

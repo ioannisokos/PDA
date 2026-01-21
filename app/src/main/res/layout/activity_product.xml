@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Static header (won't move) -->
+    <TextView
+        android:id="@+id/table_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Table 1"
+        android:textSize="20sp"/>
+
+    <!-- Container for the two lists that will adjust -->
+    <LinearLayout
+        android:id="@+id/lists_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp">
+
+    <!-- Static sticky header (won't move) -->
+    <TextView
+        android:id="@+id/sticky_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:background="@android:color/darker_gray"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:textSize="18sp"
+        android:backgroundTint="#483C4F"
+        android:textColor="#FFFFFF"/>
+
+        <!-- ExpandableListView -->
+        <ExpandableListView
+            android:id="@+id/expandable_category_list"
+            android:layout_width="match_parent"
+            android:layout_height="335dp"
+            android:background="#F2F2F2"/>
+
+        <!-- ListView -->
+        <ListView
+            android:id="@+id/selected_items_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
+
+    <!-- Static bottom controls (won't move) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total: €0.00"
+            android:textSize="18sp"/>
+
+        <Button
+            android:id="@+id/transfer_order_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ΜΕΤΑΦΟΡΑ"
+            android:backgroundTint="#483C4F"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <!-- Static clear button (won't move) -->
+    <Button
+        android:id="@+id/clear_table_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Clear Table"
+        android:backgroundTint="#483C4F"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>

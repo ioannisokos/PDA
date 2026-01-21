@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/dv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DELIVERY"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- Buttons with text below each -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Button 0.5€ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/add05"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="ΝΕΡΟ 0,5€"
+                android:backgroundTint="#008080"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/tv_count_05"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery: 0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Button 2€ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/add2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="ΡΟΦΗΜΑ 2€"
+                android:backgroundTint="#008080"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/tv_count_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery: 0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Button 2.5€ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/add25"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="ΡΟΦΗΜΑ 2.5€"
+                android:backgroundTint="#008080"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/tv_count_25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery: 0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Button 3€ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/add3"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="ΡΟΦΗΜΑ 3€"
+                android:backgroundTint="#008080"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/tv_count_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery: 0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <!-- Button 5€ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <Button
+                android:id="@+id/add5"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="ΠΟΤΟ 5€"
+                android:backgroundTint="#008080"
+                android:textColor="#FFFFFF"
+                android:layout_margin="8dp" />
+
+            <TextView
+                android:id="@+id/tv_count_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Delivery: 0"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Clear Button -->
+    <Button
+        android:id="@+id/clear_click_counts_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear"
+        android:backgroundTint="#FF0000"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp"
+        android:layout_gravity="center" />
+
+</LinearLayout>

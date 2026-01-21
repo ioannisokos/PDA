@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Παραγγελίες"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingBottom="16dp" />
+
+    <!-- RecyclerView with layout_weight -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/orders_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <!-- Buttons at the bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!--   <Button
+               android:id="@+id/btn_undo"
+               android:layout_width="42dp"
+               android:layout_height="42dp"
+               android:layout_gravity="center"
+               android:layout_margin="8dp"
+               android:backgroundTint="#483C4F"
+               android:text="↶"
+               android:textColor="#FFFFFF" />
+   -->
+
+        <Button
+            android:id="@+id/btn_show_hidden"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Εμφάνιση Eκκρεμων"
+            android:backgroundTint="#483C4F"
+            android:textColor="#FFFFFF"
+            android:layout_margin="8dp"/>
+
+        <!--   <Button
+                   android:id="@+id/btn_redo"
+                   android:layout_width="42dp"
+                   android:layout_height="42dp"
+                   android:text="↷"
+                   android:layout_gravity="center"
+                   android:backgroundTint="#483C4F"
+                   android:textColor="#FFFFFF"
+                   android:layout_margin="8dp" />
+
+            -->
+
+       </LinearLayout>
+
+
+
+   </LinearLayout>
