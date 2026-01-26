@@ -13,11 +13,9 @@ import android.widget.*
 import androidx.activity.ComponentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.pda.data.ProductEntity
-//import com.example.pda.data.Order
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.analytics
-//import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import android.text.InputType
@@ -37,14 +35,14 @@ class SecondActivity : ComponentActivity() {
 
 
     private lateinit var firestore: FirebaseFirestore
-    private val allowedDeviceId = "cXlPfhK-RcmqImf1XRKP5r"
-    private val allowedDeviceId2 = "e21-qMIiRmGE1yxPmTjjJs"
-    private val allowedDeviceId3 = "fdH2AYtyQI2sJWSM5fom3u"
+    private val allowedDeviceId = "****************"
+    private val allowedDeviceId2 = "***************"
+    private val allowedDeviceId3 = "***************"
 
     
 
     private val categoryIds = mutableMapOf<String, String>() // Map of category names to IDs
-    private val commentsMap = mutableMapOf<String, String>() // 🔥 Use String as key (Product ID)
+    private val commentsMap = mutableMapOf<String, String>() // String as key Product IDs
 
     private var tableNumber: String = ""
     private val selectedProducts = mutableListOf<ProductEntity>()
@@ -520,11 +518,11 @@ class SecondActivity : ComponentActivity() {
 
 
 
-    // Για να συνδέσουμε τα grouped rows με τα πραγματικά ProductEntity
+
     private val groupedProductList = mutableListOf<List<ProductEntity>>()
 
     private fun updateSelectedListView() {
-        // Κρατάει τη σειρά που προστέθηκαν
+        // Keep the order that where added
         val grouped = linkedMapOf<Triple<String, String, String>, MutableList<ProductEntity>>()
 
         for (product in selectedProducts) {
@@ -535,9 +533,9 @@ class SecondActivity : ComponentActivity() {
             grouped[key]!!.add(product)
         }
 
-        groupedProductList.clear() // καθάρισε πριν ξαναχτίσεις
+        groupedProductList.clear() 
         val productDisplayList = grouped.map { (key, group) ->
-            groupedProductList.add(group)  // ✅ mapping row → actual group
+            groupedProductList.add(group)  
 
             val quantity = group.size
             val product = group.first()
@@ -559,95 +557,9 @@ class SecondActivity : ComponentActivity() {
 
     private fun getProductPrice(productName: String): Double {
         return when (productName) {
-            "Espresso μονό" -> 2.5
-            "Espresso διπλό" -> 3.5
-            "Freddo espresso" -> 3.5
-            "Freddo cappuccino" -> 4.0
-            "Cappuccino μονό" -> 3.5
-            "Cappuccino διπλό" -> 4.0
-            "Latte ζεστό" -> 4.0
-            "Latte κρύο" -> 4.0
-            "Macchiato μονό" -> 3.0
-            "Macchiato διπλό" -> 3.50
-            "Americano" -> 3.0
-            "Americano διπλός"-> 3.5
-            "Ελληνικός μονός" -> 3.0
-            "Ελληνικός διπλός" -> 3.5
-            "Φραπέ" -> 3.0
-            "Νες"-> 3.0
-            "Γαλλικός" -> 3.0
-            "Mocaccino" -> 4.0
-            "Σοκολάτα" -> 4.0
-            "Σοκολάτα με σαντιγί" -> 4.0
-            "Σοκολάτα λευκή" -> 4.0
-            "Σοκολάτα καραμέλα" -> 4.0
-            "Σοκολάτα φουντούκι" -> 4.0
-            "Σοκολάτα φράουλα" -> 4.0
-            "Σοκολάτα λευκή μαστίχα" -> 4.0
-            "Σοκολάτα cranberry" -> 4.0
-            "Σοκολάτα καυτερή" -> 4.0
-            "Κακάο" -> 3.5
-            "Νερό" -> 0.5
-            "Πορτοκαλάδα με ανθρακικό" -> 3.0
-            "Πορτοκαλάδα χωρίς ανθρακικό" -> 3.0
-            "Λεμονάδα" -> 3.0
-            "Ροζ λεμονάδα" -> 3.0
-            "Βυσσινάδα" -> 3.0
-            "Coca-cola" -> 3.0
-            "Coca-cola zero" -> 3.0
-            "Ξινό νερό Φλώρινας" -> 3.0
-            "Τσάι ροδάκινο" -> 3.5
-            "Τσάι λεμόνι" -> 3.5
-            "Τσάι χωρίς ζάχαρη" -> 3.5
-            "Τσάι του βουνού" -> 3.0
-            "Πράσινο Τσάι" ->3.0
-            "Μαύρο τσάι" -> 3.0
-            "Χαμομήλι" -> 3.0
-            "Caramel toffee" -> 3.5
-            "Jardin blue" -> 3.5
-            "De chinois" -> 3.5
-            "Bali" -> 3.5
-            "4 φρούτα" -> 3.5
-            "Φυσικός χυμός πορτοκάλι" -> 4.0
-            "Χυμός πορτοκάλι" -> 3.0
-            "Χυμός ροδάκινο" -> 3.0
-            "Χυμός μπανάνα" -> 3.0
-            "Χυμός βύσσινο" -> 3.0
-            "Χυμός λεμόνι" -> 3.0
-            "Χυμός ανάμεικτος" -> 3.0
-            "Giagia mas λεμονάδα" -> 3.5
-            "Giagia mas λεμόνι φράουλα" -> 3.5
-            "Giagia mas πράσινο μήλο-ρόδι" -> 3.5
-            "Giagia mas ροδακινάδα" -> 3.5
-            "Giagia mas πανδαισία" -> 3.5
-            "Τοστ ζαμ/τυρί" -> 3.0
-            "Τοστ γαλ/τυρί" -> 3.0
-            "Τοστ τυρί" -> 3.0
-            "Εζα lager" -> 3.5
-            "Εζα άνευ"->3.5
-            "Άλφα" -> 3.5
-            "Κάιζερ" -> 3.5
-            "Fisher" -> 3.5
-            "Mythos ice" -> 3.5
-            "Βαρέλι Άλφα" -> 3.5
-            "Λευκό ξηρό" -> 4.0
-            "Λευκό ημίγλυκο" -> 4.0
-            "Κόκκινο ξηρό" -> 4.0
-            "Ροζέ ημίγλυκο" -> 4.0
-            "Moschato dusty" -> 5.0
-            "Sangria" -> 4.0
-            "Τσίπουρο Τυρνάβου" -> 3.5
-            "Τσίπουρο Ηδονικό" -> 3.5
-            "Ούζο Τυρνάβου" -> 3.5
-            "Ποτό απλό" -> 6.0
-            "Ποτό special" -> 7.0
-            "Ποτό premium" -> 10.0
-            "Cocktail" -> 6.0
-            "Delivery 0.5€" -> 0.5
-            "Delivery 2€" ->2.0
-            "Delivery 2.5€" ->2.5
-            "Delivery 3€" ->3.0
-            "Delivery 5€" ->5.0
+            //"product name ->price 
+            //example
+            "Espresso" -> 2.5
             else -> 0.0
         }
     }
@@ -717,7 +629,7 @@ class SecondActivity : ComponentActivity() {
                 selectedProducts.remove(productToRemove)
                 commentsMap.remove(productToRemove.id)
 
-                // ✅ Analytics event
+                // Analytics event
                 val bundle = Bundle().apply {
                     putString("product_name", productToRemove.name)
                     putDouble("product_price", productToRemove.price)
@@ -728,7 +640,7 @@ class SecondActivity : ComponentActivity() {
                 updateSelectedListView()
                 updateTotalPrice()
 
-                // ✅ Stock update
+                //  Stock update
                 increaseStock(productToRemove.name)
             }
             .addOnFailureListener { e ->
@@ -822,7 +734,7 @@ class SecondActivity : ComponentActivity() {
                 if (task.isSuccessful) {
                     val firebaseDeviceId = task.result
                     Log.d("DeviceID", "Firebase Device ID: $firebaseDeviceId")
-                    // Check against allowed device IDs
+                    // Check against allowed device IDs(here are 3)
                     callback(firebaseDeviceId == allowedDeviceId || firebaseDeviceId == allowedDeviceId2 || firebaseDeviceId==allowedDeviceId3)
                 } else {
                     Log.e("DeviceID", "Failed to get Firebase Device ID", task.exception)
