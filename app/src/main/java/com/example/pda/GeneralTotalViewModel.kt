@@ -70,7 +70,7 @@ class GeneralTotalViewModel : ViewModel() {
                 }
 
                 snapshot?.getDouble("generalTotal")?.let { remoteTotal ->
-                    // Only update if change didn't originate from us
+                    
                     if (remoteTotal != _generalTotal.value) {
                         _generalTotal.value = remoteTotal
                     }
