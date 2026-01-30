@@ -14,7 +14,7 @@ class StockActivity : ComponentActivity() {
     private lateinit var stockRecyclerView: RecyclerView
     private lateinit var stockAdapter: StockAdapter
     private val productStockList = mutableListOf<ProductStock>()
-    private var stockListener: ListenerRegistration? = null // 🔥 Store listener reference
+    private var stockListener: ListenerRegistration? = null // Store listener reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,12 +33,10 @@ class StockActivity : ComponentActivity() {
         loadStockChanges()
     }
 
+    //Products with  
     private fun loadStockChanges() {
         val specificProducts = listOf(
-            "Πορτοκαλάδα με ανθρακικό", "Πορτοκαλάδα χωρίς ανθρακικό", "Λεμονάδα", "Ροζ λεμονάδα", "Βυσσινάδα",
-            "Coca-cola", "Coca-cola zero", "Ξινό νερό Φλώρινας", "Τσάι ροδάκινο", "Τσάι λεμόνι", "Τσάι χωρίς ζάχαρη",
-            "Εζα lager", "Άλφα", "Κάιζερ", "Fisher", "Mythos ice", "Λευκό ξηρό", "Λευκό ημίγλυκο", "Κόκκινο ξηρό",
-            "Ροζέ ημίγλυκο", "Τσίπουρο Τυρνάβου", "Τσίπουρο Ηδονικό", "Ούζο Τυρνάβου"
+            "Coca-cola"
         )
 
         stockListener = firestore.collection("pda").document("cafe")
@@ -73,7 +71,7 @@ class StockActivity : ComponentActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        stockListener?.remove() // 🚀 Remove Firestore listener to prevent memory leaks
+        stockListener?.remove() // Remove Firestore listener to prevent memory leaks
     }
 }
 
