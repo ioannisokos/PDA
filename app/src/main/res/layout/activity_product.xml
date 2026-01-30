@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Static header (won't move) -->
+    <!-- Static header  -->
     <TextView
         android:id="@+id/table_number"
         android:layout_width="wrap_content"
@@ -22,7 +22,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="0dp">
 
-    <!-- Static sticky header (won't move) -->
+    <!-- Static sticky header  -->
     <TextView
         android:id="@+id/sticky_header"
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
             android:layout_marginTop="5dp"/>
     </LinearLayout>
 
-    <!-- Static bottom controls (won't move) -->
+    <!-- Static bottom controls  -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 
-    <!-- Static clear button (won't move) -->
+    <!-- Static clear button  -->
     <Button
         android:id="@+id/clear_table_button"
         android:layout_width="match_parent"
