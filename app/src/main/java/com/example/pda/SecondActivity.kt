@@ -48,19 +48,11 @@ class SecondActivity : ComponentActivity() {
     private val selectedProducts = mutableListOf<ProductEntity>()
     private lateinit var selectedProductsAdapter: ArrayAdapter<String>
 
-    private val categoryList = listOf("Καφέδες", "Σοκολάτες", "Κρύα τσαι","Ζεστό τσαι", "Αναψυκτικά", "Χυμοί","Σνακ", "Μπύρες", "Κρασιά", "Ποτά","Delivery")
+    private val categoryList = listOf("Καφέδες","Delivery")
     private val productMap = mapOf(
-        "Καφέδες" to listOf("Espresso μονό", "Espresso διπλό", "Freddo espresso", "Freddo cappuccino", "Cappuccino μονό", "Cappuccino διπλό", "Latte ζεστό" , "Latte κρύο" , "Macchiato μονό", "Macchiato διπλό", "Americano", "Americano διπλός" , "Ελληνικός μονός", "Ελληνικός διπλός", "Φραπέ", "Νες" , "Γαλλικός","Mocaccino"),
-        "Σοκολάτες" to listOf("Σοκολάτα", "Σοκολάτα με σαντιγί", "Σοκολάτα λευκή", "Σοκολάτα καραμέλα", "Σοκολάτα φουντούκι", "Σοκολάτα φράουλα", "Σοκολάτα λευκή μαστίχα", "Σοκολάτα cranberry", "Σοκολάτα καυτερή","Κακάο","Νερό"),
-        "Κρύα τσαι" to listOf("Τσάι ροδάκινο", "Τσάι λεμόνι", "Τσάι χωρίς ζάχαρη"),
-        "Ζεστό τσαι" to listOf("Τσάι του βουνού","Πράσινο Τσάι","Μαύρο τσάι","Χαμομήλι","Caramel toffee","Jardin blue","De chinois","Bali","4 φρούτα"),
-        "Αναψυκτικά" to listOf("Πορτοκαλάδα με ανθρακικό", "Πορτοκαλάδα χωρίς ανθρακικό", "Λεμονάδα", "Ροζ λεμονάδα", "Βυσσινάδα", "Coca-cola", "Coca-cola zero", "Ξινό νερό Φλώρινας"),
-        "Χυμοί" to listOf("Φυσικός χυμός πορτοκάλι", "Χυμός πορτοκάλι", "Χυμός ροδάκινο", "Χυμός μπανάνα", "Χυμός βύσσινο", "Χυμός λεμόνι", "Χυμός ανάμεικτος", "Giagia mas λεμονάδα", "Giagia mas λεμόνι φράουλα", "Giagia mas πράσινο μήλο-ρόδι", "Giagia mas ροδακινάδα", "Giagia mas πανδαισία"),
-        "Σνακ" to listOf("Τοστ ζαμ/τυρί","Τοστ γαλ/τυρί","Τοστ τυρί"),
-        "Μπύρες" to listOf("Εζα lager", "Εζα άνευ" , "Άλφα", "Κάιζερ", "Fisher", "Mythos ice", "Βαρέλι Άλφα"),
-        "Κρασιά" to listOf("Λευκό ξηρό", "Λευκό ημίγλυκο", "Κόκκινο ξηρό", "Ροζέ ημίγλυκο", "Moschato dusty", "Sangria"),
-        "Ποτά" to listOf("Τσίπουρο Τυρνάβου", "Τσίπουρο Ηδονικό", "Ούζο Τυρνάβου", "Ποτό απλό", "Ποτό special", "Ποτό premium", "Cocktail"),
-        "Delivery" to listOf("Delivery 0.5€","Delivery 2€","Delivery 2.5€","Delivery 3€","Delivery 5€")
+        "Καφέδες" to listOf("Espresso"),
+
+        "Delivery" to listOf("Delivery 5€")
     )
 
     @SuppressLint("MissingInflatedId")
@@ -106,7 +98,7 @@ class SecondActivity : ComponentActivity() {
         }
 
         // Convert tableNumber to String and prepend "table_"
-        tableNumber = "$tableNumberInt" // Now tableNumber is "table_1", "table_2", etc.
+        tableNumber = "$tableNumberInt" 
        // Log.d("SecondActivityDebug", "Received tableNumber: $tableNumber")
 
 
@@ -218,10 +210,10 @@ class SecondActivity : ComponentActivity() {
             val container = findViewById<LinearLayout>(R.id.lists_container)
             val availableHeight = container.height - originalListMargin
 
-            // ExpandableListView takes 2/3 of space
+            // ExpandableListView takes 3/3 of space
             expandableListView.layoutParams.height = (availableHeight * 3 / 3).toInt()
 
-            // ListView takes 1/3 of space
+            // ListView takes 0/3 of space
             selectedItemsList.layoutParams.height = (availableHeight * 0 / 3).toInt()
             (selectedItemsList.layoutParams as ViewGroup.MarginLayoutParams).topMargin = 8.dpToPx(this)
 
