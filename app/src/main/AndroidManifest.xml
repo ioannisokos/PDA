@@ -38,7 +38,6 @@
         <activity android:name=".OrdersActivity" android:exported="false" />
         <activity android:name=".DeliveryActivity" android:exported="false" />
         <activity android:name=".StockActivity" android:exported="false" />
-        <activity android:name=".SalesSummaryActivity" android:exported="false"/>
 
 
     </application>
