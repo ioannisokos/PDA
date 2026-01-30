@@ -20,6 +20,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
+import com.example.pda.data.ProductEntity
+import com.example.pda.data.TableEntity
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -96,7 +98,7 @@ class MainActivity : ComponentActivity() {
         generalTotal = sharedPreferences.getFloat("generalTotal", 0f).toDouble()
         hideGeneralTotal() // Hide it initially
 
-        // 🔐 Require password to **edit** general total
+        // Require password to edit general total
         generalTotalEditText.setOnFocusChangeListener { _, hasFocus ->
             if (hasFocus) {
                 requestPasswordIfNeeded {
@@ -117,14 +119,14 @@ class MainActivity : ComponentActivity() {
             }
         }
 
-        // 🔐 Require password to **view** general total
+        //  Require password to view general total
         generalTotalEditText.setOnClickListener {
             requestPasswordIfNeeded {
                 showGeneralTotal()
             }
         }
 
-        // 🔐 Require password to **clear** general total
+        // Require password to clear general total
         clearGeneralTotalButton.setOnClickListener {
             requestPasswordIfNeeded {
                 // Only show the confirmation dialog after password is verified
@@ -202,7 +204,7 @@ class MainActivity : ComponentActivity() {
         //addSampleData()
         setupFirestoreListener()
        // initializeGeneralTotalInFirestore()
-        // ✅ Always fetch the latest total when opening the app
+        //  Always fetch the latest total when opening the app
         fetchGeneralTotal()
         //tables Color
         setupTableStatusListener()
@@ -210,7 +212,7 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun addSampleData() {
-        // Add categories, products, and tables to Firestore
+        // Add categories, products, and tables to Firestore (to add remove the addSample... from comments,then add them back) 
        // addSampleProducts()
        // addSampleTables()
       //  addSampleCategories()
@@ -220,8 +222,7 @@ class MainActivity : ComponentActivity() {
     private fun addSampleCategories() {
         val firestore = FirebaseFirestore.getInstance()
         val categories = listOf(
-            "Καφέδες", "Σοκολάτες", "Κρύα τσαι", "Ζεστό τσαι", "Αναψυκτικά",
-            "Χυμοί","Σνακ","Μπύρες", "Κρασιά", "Ποτά","Delivery"
+            "Καφέδες","Delivery"
         )
 
         for (category in categories) {
@@ -256,7 +257,7 @@ class MainActivity : ComponentActivity() {
                 }
 
                 // Ensure the required categories exist
-                val requiredCategories = listOf("Καφέδες", "Σοκολάτες", "Αναψυκτικά", "Κρύα τσαι", "Ζεστό τσαι", "Χυμοί", "Σνακ" , "Μπύρες", "Κρασιά", "Ποτά")
+                val requiredCategories = listOf("Καφέδες", ,"Delivery")
                 for (category in requiredCategories) {
                     if (categoryIds[category] == null) {
                         Log.e("Firestore", "Category not found: $category")
@@ -278,405 +279,6 @@ class MainActivity : ComponentActivity() {
                         name = "Espresso μονό",
                         price = 2.5,
                         categoryId = categoryIds["Καφέδες"]!!,
-                    ),
-                    ProductEntity(
-                        name = "Espresso διπλό",
-                        price = 3.5,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Freddo espresso",
-                        price = 3.5,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Freddo cappuccino",
-                        price = 4.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Cappuccino μονό",
-                        price = 3.5,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Cappuccino διπλό",
-                        price = 4.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Latte ζεστό/κρύο",
-                        price = 4.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Macchiato μονό",
-                        price = 3.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Macchiato διπλό",
-                        price = 3.50,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Americano",
-                        price = 3.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ελληνικός μονός",
-                        price = 3.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ελληνικός διπλός",
-                        price = 3.5,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Νες /φραπέ",
-                        price = 3.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Γαλλικός",
-                        price = 3.0,
-                        categoryId = categoryIds["Καφέδες"]!!
-                    ),
-
-                    ProductEntity(
-                        name = "Σοκολάτα",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα με σαντιγί",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα λευκή",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα καραμέλα",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα φουντούκι",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα φράουλα",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα λευκή μαστίχα",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα cranberry",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Σοκολάτα καυτερή",
-                        price = 4.0,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Κακάο",
-                        price = 3.5,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Νερό",
-                        price = 0.5,
-                        categoryId = categoryIds["Σοκολάτες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Πορτοκαλάδα με ανθρακικό",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Πορτοκαλάδα χωρίς ανθρακικό",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Λεμονάδα",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ροζ λεμονάδα",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Βυσσινάδα",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Coca-cola",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Coca-cola zero",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ξινό νερό Φλώρινας",
-                        price = 3.0,
-                        categoryId = categoryIds["Αναψυκτικά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσάι ροδάκινο",
-                        price = 3.5,
-                        categoryId = categoryIds["Κρύα τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσάι λεμόνι",
-                        price = 3.5,
-                        categoryId = categoryIds["Κρύα τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσάι χωρίς ζάχαρη",
-                        price = 3.5,
-                        categoryId = categoryIds["Κρύα τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσάι του βουνού",
-                        price = 3.0,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),ProductEntity(
-                        name = "Πράσινο Τσάι",
-                        price = 3.0,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),ProductEntity(
-                        name = "Μαύρο τσάι",
-                        price = 3.0,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Caramel toffee",
-                        price = 3.5,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Jardin blue",
-                        price = 3.5,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Rooibos citrus",
-                        price = 3.5,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Carcadet fantasia",
-                        price = 3.5,
-                        categoryId = categoryIds["Ζεστό τσαι"]!!
-                    ),
-                    ProductEntity(
-                        name = "Φυσικός χυμός πορτοκάλι",
-                        price = 4.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός πορτοκάλι",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός ροδάκινο",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός μπανάνα",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός βύσσινο",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός λεμόνι",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Χυμός ανάμεικτος",
-                        price = 3.0,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Giagia mas λεμονάδα",
-                        price = 3.5,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Giagia mas λεμόνι φράουλα",
-                        price = 3.5,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Giagia mas πράσινο μήλο-ρόδι",
-                        price = 3.5,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Giagia mas ροδακινάδα",
-                        price = 3.5,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Giagia mas πανδαισία",
-                        price = 3.5,
-                        categoryId = categoryIds["Χυμοί"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τοστ ζαμ/τυρί",
-                        price = 3.0,
-                        categoryId = categoryIds["Σνακ"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τοστ γαλ/τυρί",
-                        price = 3.0,
-                        categoryId = categoryIds["Σνακ"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τοστ τυρί",
-                        price = 3.0,
-                        categoryId = categoryIds["Σνακ"]!!
-                    ),
-                    ProductEntity(
-                        name = "Εζα lager",
-                        price = 3.5,
-                        categoryId = categoryIds["Μπύρες"]!!
-                    ),
-                    ProductEntity
-                    (name = "Άλφα",
-                     price = 3.5,
-                     categoryId = categoryIds["Μπύρες"]!!),
-                    ProductEntity(
-                        name = "Κάιζερ",
-                        price = 3.5,
-                        categoryId = categoryIds["Μπύρες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Fisher",
-                        price = 3.5,
-                        categoryId = categoryIds["Μπύρες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Mythos ice",
-                        price = 3.5,
-                        categoryId = categoryIds["Μπύρες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Βαρέλι Άλφα",
-                        price = 3.5,
-                        categoryId = categoryIds["Μπύρες"]!!
-                    ),
-                    ProductEntity(
-                        name = "Λευκό ξηρό",
-                        price = 4.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Λευκό ημίγλυκο",
-                        price = 4.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Κόκκινο ξηρό",
-                        price = 4.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ροζέ ημίγλυκο",
-                        price = 4.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Moschato dusty",
-                        price = 5.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Sangria",
-                        price = 4.0,
-                        categoryId = categoryIds["Κρασιά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσίπουρο Τυρνάβου",
-                        price = 3.5,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Τσίπουρο Ηδονικό",
-                        price = 3.5,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ούζο Τυρνάβου",
-                        price = 3.5,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ποτό απλό",
-                        price = 6.0,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ποτό special",
-                        price = 7.0,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Ποτό premium",
-                        price = 10.0,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-                    ProductEntity(
-                        name = "Cocktail",
-                        price = 6.0,
-                        categoryId = categoryIds["Ποτά"]!!
-                    ),
-
-                    ProductEntity(
-                        name = "Delivery 0.5€",
-                        price = 0.5,
-                        categoryId = categoryIds["Delivery"]!!
-                    ),
-                     ProductEntity(
-                        name = "Delivery 2€",
-                        price = 2.0,
-                        categoryId = categoryIds["Delivery"]!!
-                    ),
-                     ProductEntity(
-                        name = "Delivery 2.5€",
-                        price = 2.5,
-                        categoryId = categoryIds["Delivery"]!!
-                    ),
-                     ProductEntity(
-                        name = "Delivery 3.0€",
-                        price = 3.0,
-                        categoryId = categoryIds["Delivery"]!!
                     ),
                      ProductEntity(
                         name = "Delivery 5€",
@@ -702,34 +304,6 @@ class MainActivity : ComponentActivity() {
         var firestore = FirebaseFirestore.getInstance()
         val tables = listOf(
             TableEntity(id = "1", totalPrice = 0.0),
-            TableEntity(id = "2", totalPrice = 0.0),
-            TableEntity(id = "3", totalPrice = 0.0),
-            TableEntity(id = "4", totalPrice = 0.0),
-            TableEntity(id = "5", totalPrice = 0.0),
-            TableEntity(id = "6", totalPrice = 0.0),
-            TableEntity(id = "7", totalPrice = 0.0),
-            TableEntity(id = "8", totalPrice = 0.0),
-            TableEntity(id = "9", totalPrice = 0.0),
-            TableEntity(id = "10", totalPrice = 0.0),
-            TableEntity(id = "11", totalPrice = 0.0),
-            TableEntity(id = "12", totalPrice = 0.0),
-            TableEntity(id = "13", totalPrice = 0.0),
-            TableEntity(id = "14", totalPrice = 0.0),
-            TableEntity(id = "15", totalPrice = 0.0),
-            TableEntity(id = "16", totalPrice = 0.0),
-            TableEntity(id = "17", totalPrice = 0.0),
-            TableEntity(id = "18", totalPrice = 0.0),
-            TableEntity(id = "19", totalPrice = 0.0),
-            TableEntity(id = "20", totalPrice = 0.0),
-            TableEntity(id = "21", totalPrice = 0.0),
-            TableEntity(id = "22", totalPrice = 0.0),
-            TableEntity(id = "23", totalPrice = 0.0),
-            TableEntity(id = "24", totalPrice = 0.0),
-            TableEntity(id = "25", totalPrice = 0.0),
-            TableEntity(id = "26", totalPrice = 0.0),
-            TableEntity(id = "27", totalPrice = 0.0),
-            TableEntity(id = "28", totalPrice = 0.0),
-            TableEntity(id = "29", totalPrice = 0.0),
             TableEntity(id = "30", totalPrice = 0.0),
 
         )
@@ -810,7 +384,7 @@ class MainActivity : ComponentActivity() {
             val buttonId = resources.getIdentifier("btn_table_$tableNum", "id", packageName)
             val button = findViewById<Button>(buttonId)
 
-            // ✅ Αγνόησε τραπέζια χωρίς κουμπί
+            // Ignore the tables without button
             if (button == null) {
                 Log.w("TableStatus", "⚠️ Button not found for table: $tableNum")
                 continue
@@ -821,7 +395,7 @@ class MainActivity : ComponentActivity() {
                 .collection("orders")
                 .addSnapshotListener { ordersSnapshot, error ->
                     if (error != null) {
-                        Log.e("OrdersListener", "🔥 Error for table $tableNum: ${error.message}")
+                        Log.e("OrdersListener", " Error for table $tableNum: ${error.message}")
                         return@addSnapshotListener
                     }
 
@@ -858,11 +432,6 @@ class MainActivity : ComponentActivity() {
 
         popup.setOnMenuItemClickListener { item ->
             when (item.itemId) {
-                R.id.table_25 -> openTable(25)
-                R.id.table_26 -> openTable(26)
-                R.id.table_27 -> openTable(27)
-                R.id.table_28 -> openTable(28)
-                R.id.table_29 -> openTable(29)
                 R.id.table_30 -> openTable(30)
                 R.id.btn_logout -> {
                     auth.signOut()
@@ -896,7 +465,7 @@ class MainActivity : ComponentActivity() {
                 // Save to SharedPreferences
                 sharedPreferences.edit().putFloat("generalTotal", generalTotal.toFloat()).apply()
 
-                // 🔄 Fetch latest value from Firestore to sync devices
+                // Fetch latest value from Firestore to sync devices
                 fetchGeneralTotal()
 
                 // Log the general total updated event
@@ -941,7 +510,7 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    // 🔄 Function to fetch latest generalTotal from Firestore
+    // Function to fetch latest generalTotal from Firestore
     private fun fetchGeneralTotal() {
         val firestore = FirebaseFirestore.getInstance()
 
@@ -952,7 +521,7 @@ class MainActivity : ComponentActivity() {
                     val latestTotal = document.getDouble("generalTotal") ?: 0.0
                     generalTotal = latestTotal
 
-                    // ✅ Update UI with latest value
+                    // Update UI with latest value
                     generalTotalEditText.setText("%.2f€".format(generalTotal))
                 }
             }
@@ -1001,7 +570,7 @@ class MainActivity : ComponentActivity() {
             .setMessage("Εισάγεται κωδικό για συνέχεια")
             .setView(input)
             .setPositiveButton("OK") { _, _ ->
-                if (input.text.toString() == "3011") {
+                if (input.text.toString() == "0000") {
                     isPasswordVerified = true // Set the flag to true
                     onSuccess() // Execute the success action
                 } else {
