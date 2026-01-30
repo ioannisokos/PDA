@@ -30,16 +30,6 @@
         android:orientation="horizontal"
         android:gravity="center">
 
-        <!--   <Button
-               android:id="@+id/btn_undo"
-               android:layout_width="42dp"
-               android:layout_height="42dp"
-               android:layout_gravity="center"
-               android:layout_margin="8dp"
-               android:backgroundTint="#483C4F"
-               android:text="↶"
-               android:textColor="#FFFFFF" />
-   -->
 
         <Button
             android:id="@+id/btn_show_hidden"
@@ -50,17 +40,6 @@
             android:textColor="#FFFFFF"
             android:layout_margin="8dp"/>
 
-        <!--   <Button
-                   android:id="@+id/btn_redo"
-                   android:layout_width="42dp"
-                   android:layout_height="42dp"
-                   android:text="↷"
-                   android:layout_gravity="center"
-                   android:backgroundTint="#483C4F"
-                   android:textColor="#FFFFFF"
-                   android:layout_margin="8dp" />
-
-            -->
 
        </LinearLayout>
 
