@@ -69,8 +69,7 @@ class OrdersActivity : ComponentActivity() {
         ordersRecyclerView.addItemDecoration(dividerItemDecoration)
 
         // Load orders and set up Firestore listener
-       // loadOrders() // Call this only once
-        setupFirestoreListener() // Call this only once
+        setupFirestoreListener() 
     }
 
     private fun toggleOrderStatus(order: Order) {
@@ -113,11 +112,7 @@ class OrdersActivity : ComponentActivity() {
 
 
     private fun setupFirestoreListener() {
-        // Clear existing listeners
-       // firestoreListener?.remove()
-       // orderListeners.values.forEach { it.remove() }
-      //  orderListeners.clear()
-
+        
         // Main tables listener
         firestoreListener = firestore.collection("pda/cafe/tables")
             .addSnapshotListener { tablesSnapshot, error ->
@@ -174,7 +169,7 @@ class OrdersActivity : ComponentActivity() {
 
 
 
-    // ✅ This function completely replaces the list
+    // This function completely replaces the list
     private fun updateOrdersList(newOrders: List<Order>) {
         runOnUiThread {
             // Simple comparison to prevent unnecessary updates
