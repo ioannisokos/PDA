@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.RecyclerView
 class OrdersAdapter(
     private val ordersList: List<Order>,
     private val hiddenOrders: MutableList<Order>,
-    private val onStatusChangeListener: (Order) -> Unit, // ✅ Listener for status change
-    private val updateStatusCallback: (Order) -> Unit // ✅ Firestore update function
+    private val onStatusChangeListener: (Order) -> Unit, // Listener for status change
+    private val updateStatusCallback: (Order) -> Unit // Firestore update function
 ) : RecyclerView.Adapter<OrdersAdapter.OrderViewHolder>() {
 
     private var showAllOrders = true // Track filter state
