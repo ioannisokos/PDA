@@ -45,7 +45,7 @@ class OrdersActivity : ComponentActivity() {
         ordersRecyclerView = findViewById(R.id.orders_recycler_view)
         ordersAdapter = OrdersAdapter(ordersList, hiddenOrders,
             { order -> toggleOrderStatus(order) }, // Existing status change handler
-            { order -> updateOrderStatusInFirestore(order) }, // ✅ Firestore update function
+            { order -> updateOrderStatusInFirestore(order) }, // Firestore update function
         )
 
         ordersRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -102,7 +102,7 @@ class OrdersActivity : ComponentActivity() {
         orderRef.update("status", order.status)
             .addOnSuccessListener {
                 runOnUiThread {
-                    ordersAdapter.notifyDataSetChanged() // ✅ Refresh UI
+                    ordersAdapter.notifyDataSetChanged() // Refresh UI
                 }
             }
             .addOnFailureListener { e ->
