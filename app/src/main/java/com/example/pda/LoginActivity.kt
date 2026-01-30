@@ -20,7 +20,7 @@ class LoginActivity : ComponentActivity() {
 
         val currentUser = FirebaseAuth.getInstance().currentUser
         if (currentUser != null) {
-            // Ο χρήστης είναι ήδη συνδεδεμένος, προχώρα κατευθείαν
+            // The user is already logged in
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
@@ -53,7 +53,7 @@ class LoginActivity : ComponentActivity() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Επιτυχής σύνδεση, προχώρα στο MainActivity
+                    // Connected successfully,proceed MainActivity
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
