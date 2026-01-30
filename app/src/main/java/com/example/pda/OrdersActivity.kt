@@ -196,7 +196,7 @@ data class Order(
     val timestamp: Date,
     val tableNumber: String,
     val comment: String = "",
-    var status: String = "pending", // Add status field with a default value of "pending"
-    var id: String = "" // Add ID field
+    var status: String = "pending", 
+    var id: String = "" 
 
 )
