@@ -22,7 +22,7 @@ Only the essential source and UI files are included:
 
 ```
 ✔ Kotlin source files (.kt)
-✔ XML layout files
+✔ XML layout and other drawable files
 ✔ Gradle dependencies (libs)
 ✔ Base structure for Activities & Models
 ```
