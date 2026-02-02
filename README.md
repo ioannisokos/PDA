@@ -1,4 +1,4 @@
-# 📱 PDA Android App (Kotlin)
+# 📱 PDA Android App for Businesses(Kotlin)
 
 A PDA-style Android application built with **Kotlin**, featuring **Firebase Authentication** and a base structure for managing products and categories.
 
